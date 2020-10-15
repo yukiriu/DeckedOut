@@ -11,6 +11,7 @@ public class PlaceCard : MonoBehaviour
 	private int colN;
 	private int rowN;
 	private bool gridFull = false;
+	public static int cardPrice = 10;
 
 	public void Start(){
 		InitGrid();
@@ -42,12 +43,14 @@ public class PlaceCard : MonoBehaviour
 			gridFull = is2DArrayFull(grid);
 			colN = Random.Range(0,5);
 			rowN = Random.Range(0,3);
-			if(!grid[rowN, colN]){
-				Instantiate(cardPrefabs[Random.Range(0,5)], new Vector2(colN * 87 - 175, rowN * -85 + 45), Quaternion.identity, GameObject.FindGameObjectWithTag("Panel").transform);
+			if(!grid[rowN, colN] && cardPrice <= PlayerStats.CP){
+				GameObject gO = Instantiate(cardPrefabs[Random.Range(0,5)], new Vector2( -102.2f, rowN * -49.8f - 12.7f), Quaternion.identity, GameObject.FindGameObjectWithTag("Panel").transform);
+				gO.transform.localPosition = new Vector3(colN * -49.8f + 102.2f, rowN * -49.8f - 12.7f, 0);
 				grid[rowN, colN] = true;
 				cardPlaced = true;
-				Debug.Log(cardPlaced);
+				PlayerStats.CP -= cardPrice;
+				cardPrice += 10;
 			}
-		}while(!cardPlaced && !gridFull);
+		}while(!cardPlaced && !gridFull && cardPrice < PlayerStats.CP);
 	}
 }

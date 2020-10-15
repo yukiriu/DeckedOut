@@ -16,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Post Processing
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: GameObjects
     uniqueID: 1631499389
+    locked: 0
+  - name: Post Processing
+    uniqueID: 3645828367
     locked: 0
