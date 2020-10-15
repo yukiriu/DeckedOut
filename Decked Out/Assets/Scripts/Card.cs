@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public enum Type { Buff, Magic, Physical, Transform, Debuff, Install }
 public enum Target { Strongest, First, Last, Random, None };
-public enum Abilities { None, FireAbility, WindAbility, PoisonAbility, ElectricAbility }
+public enum Abilities { None, Fire, Wind, Poison, Electric }
 
 public class Card : MonoBehaviour
 {
@@ -31,10 +31,30 @@ public class Card : MonoBehaviour
     public float UpgradeATKS;
     public int UpgradeAbility;
 
+    public void Start()
+    {
+        actualAbility = BaseAbility;
+        actualAttack = BaseAttack;
+        actualAttackSpeed = BaseAttackSpeed;
+    }
+
     private void upgradeCard()
     {
         actualAttack += UpgradeATK;
         actualAttackSpeed -= UpgradeATKS;
         actualAbility += UpgradeAbility;
     }
+
+    public string CardAtk()
+        => actualAttack.ToString();
+    public string CardType()
+        => Type.ToString();
+    public string CardAtkSpeed()
+        => actualAttackSpeed.ToString();
+    public string CardTarget()
+        => Target.ToString();
+    public string CardAbility()
+        => Ability.ToString();
+    public string CardAbilityDmg()
+        => actualAbility.ToString();
 }

@@ -9,7 +9,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("StageSelection");
     }
-    public void EditDeck()
+    public void mainmenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    public void Deck()
     {
         SceneManager.LoadScene("Deck");
     }
