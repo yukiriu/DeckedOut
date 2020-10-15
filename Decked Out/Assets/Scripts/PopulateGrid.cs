@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class PopulateGrid : MonoBehaviour
 {
-    public GameObject prefab;
-    public int numberToCreate;
+    public GameObject[] cards;
+    private int numberToCreate;
 
     void Start()
     {
+        cards = Resources.LoadAll<GameObject>("Cards");
+        numberToCreate = cards.Length;
         Populate();
     }
 
@@ -25,8 +27,10 @@ public class PopulateGrid : MonoBehaviour
 
         for (int i = 0; i < numberToCreate; i++)
         {
-            newObj = (GameObject)Instantiate(prefab, transform);
+            newObj = (GameObject)Instantiate(cards[i], transform);
             newObj.GetComponent<Image>().color = Random.ColorHSV();
+            newObj.GetComponent<CardsHandler>().CardMenu = GameObject.FindGameObjectWithTag("CardMenu");
         }
+        GameObject.FindGameObjectWithTag("CardMenu").SetActive(false);
     }
 }

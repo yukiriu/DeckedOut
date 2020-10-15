@@ -8,6 +8,9 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
     public GameObject CardMenu;
     public void OnPointerDown(PointerEventData eventData)
     {
-        CardMenu.SetActive(true);
+        if (!CardMenu.active)
+        {
+            CardMenu.SetActive(true);
+        }
     }
 }

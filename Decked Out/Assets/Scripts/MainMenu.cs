@@ -9,6 +9,10 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("StageSelection");
     }
+    public void EditDeck()
+    {
+        SceneManager.LoadScene("Deck");
+    }
     public void QuitGame()
     {
         Debug.Log("Quit");
