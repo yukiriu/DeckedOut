@@ -8,6 +8,8 @@ TagManager:
   - Waypoints
   - Card
   - CardMenu
+  - Deck
+  - AcquiredCard
   layers:
   - Default
   - TransparentFX

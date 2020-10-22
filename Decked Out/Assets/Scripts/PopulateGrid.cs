@@ -28,8 +28,9 @@ public class PopulateGrid : MonoBehaviour
         for (int i = 0; i < numberToCreate; i++)
         {
             newObj = (GameObject)Instantiate(cards[i], transform);
-            newObj.GetComponent<Image>().color = Random.ColorHSV();
             newObj.GetComponent<CardsHandler>().CardMenu = GameObject.FindGameObjectWithTag("CardMenu");
+            newObj.GetComponent<CardsHandler>().Deck = GameObject.FindGameObjectWithTag("Deck");
+            newObj.tag = "AcquiredCard";
         }
         GameObject.FindGameObjectWithTag("CardMenu").SetActive(false);
     }

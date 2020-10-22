@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public void mainmenu()
     {
         SceneManager.LoadScene("Main Menu");
+        CardsHandler.ChangedScene();
     }
     public void Deck()
     {
