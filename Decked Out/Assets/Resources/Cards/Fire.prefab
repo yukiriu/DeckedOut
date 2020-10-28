@@ -89,15 +89,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Fire
-  BaseAttack: 30
+  Description: When the bullet hits the target, deals an explosive damage to monsters
+    in range.
+  BaseAttack: 20
   BaseAttackSpeed: 0.8
-  BaseAbility: 30
+  BaseAbility: 20
   Ability: 1
   Target: 1
   Type: 1
   UpgradeATK: 3
   UpgradeATKS: 0.01
   UpgradeAbility: 3
+  PowerUpATK: 10
+  PowerUpATKS: 0
+  PowerUpAbility: 20
 --- !u!114 &1893296718574570306
 MonoBehaviour:
   m_ObjectHideFlags: 0

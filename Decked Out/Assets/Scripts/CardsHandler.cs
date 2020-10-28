@@ -36,15 +36,25 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
     }
     public void ChooseCard()
     {
-        lastCardClicked = gameObject;
+        if (!isCardAlreadyInDeck(gameObject.name))
+        {
+            lastCardClicked = gameObject;
+            toggleReplaceMenu();
+        }
+        else
+            lastCardClicked = null;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         if (eventData.pointerCurrentRaycast.gameObject.tag == "Card" && lastCardClicked != null)
         {
-            replaceCard(eventData);
-            saveDeck();
+            if (!selectedCards.Any(c => c.name.Contains(lastCardClicked.name)))
+            {
+                replaceCard(eventData);
+                saveDeck();
+                toggleReplaceMenu();
+            }
         }
         else if (!CardMenu.active && eventData.pointerCurrentRaycast.gameObject.tag == "AcquiredCard")
         {
@@ -73,7 +83,6 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
             for (int i = 1; i <= 5; i++)
             {
                 GameObject oldCard = GameObject.Find("Card" + i);
-
                 float x = oldCard.GetComponent<RectTransform>().position.x;
                 float y = oldCard.GetComponent<RectTransform>().position.y;
 
@@ -85,36 +94,62 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
                 }
 
                 Destroy(oldCard);
-
-                GameObject createdCard = Instantiate(toCreate, new Vector2(x, y), Quaternion.identity);
-                createdCard.transform.SetParent(Deck.transform);
-                createdCard.name = toCreate.name;
-
-                createdCard.GetComponent<CardsHandler>().CardMenu = GameObject.FindGameObjectWithTag("CardMenu");
-                createdCard.GetComponent<CardsHandler>().Deck = GameObject.FindGameObjectWithTag("Deck");
-                createdCard.tag = "Card";
-
+                GameObject createdCard = createCardInDeck(toCreate, x, y);
                 selectedCards.Add(createdCard);
             }
             loaded = true;
         }
     }
+    private GameObject createCardInDeck(GameObject toCreate, float x, float y)
+    {
+        GameObject createdCard = Instantiate(toCreate, new Vector2(x, y), Quaternion.identity);
+        createdCard.transform.SetParent(Deck.transform);
+        createdCard.name = toCreate.name;
+
+        createdCard.GetComponent<CardsHandler>().CardMenu = GameObject.Find("Canvas").transform.Find("CardMenu").gameObject;
+        createdCard.GetComponent<CardsHandler>().Deck = GameObject.FindGameObjectWithTag("Deck");
+        createdCard.tag = "Card";
+        return createdCard;
+    }
     private void showCardInfo()
     {
         CardMenu.SetActive(true);
+        GameObject.Find("UseButton").GetComponent<Button>().onClick.AddListener(delegate { ChooseCard(); });
         Card card = gameObject.GetComponent<Card>();
-        lastCardClicked = gameObject;
         GameObject.Find("CardName").GetComponent<TextMeshProUGUI>().text = card.Name;
         Image cardImage = GameObject.Find("CardImage").GetComponent<Image>();
-        GameObject.Find("CardDescription").GetComponent<TextMeshProUGUI>().text = "";
+        GameObject.Find("CardDescription").GetComponent<TextMeshProUGUI>().text = card.CardDescription();
         GameObject.Find("ATK").GetComponent<TextMeshProUGUI>().text = card.CardAtk();
         GameObject.Find("TYPE").GetComponent<TextMeshProUGUI>().text = card.CardType();
         GameObject.Find("ATKSPEED").GetComponent<TextMeshProUGUI>().text = card.CardAtkSpeed();
         GameObject.Find("TARGET").GetComponent<TextMeshProUGUI>().text = card.CardTarget();
         GameObject.Find("ABILITY").GetComponent<TextMeshProUGUI>().text = card.CardAbility();
         GameObject.Find("ABILITYDMG").GetComponent<TextMeshProUGUI>().text = card.CardAbilityDmg();
-        GameObject.Find("UseButton").GetComponent<Button>().onClick.AddListener(delegate { ChooseCard(); });
         cardImage.color = card.GetComponent<Image>().color;
+    }
+
+    private bool isCardAlreadyInDeck(string CardName)
+        => selectedCards.Any(c => c.name.Contains(CardName.Replace("(Clone)", "")));
+
+    private void toggleReplaceMenu()
+    {
+        GameObject acquiredCardsList = GameObject.Find("DeckMenu").transform.Find("AcquiredCards").gameObject;
+        GameObject acquiredCardsText = GameObject.Find("DeckMenu").transform.Find("Text AcquiredCards").gameObject;
+        GameObject selectACardText = GameObject.Find("DeckMenu").transform.Find("Text SelectACard").gameObject;
+        acquiredCardsList.SetActive(!acquiredCardsList.active);
+        acquiredCardsText.SetActive(!acquiredCardsText.active);
+        selectACardText.SetActive(!selectACardText.active);
+    }
+
+    private GameObject cardToCreate(string CardName)
+    {
+        GameObject toCreate = null;
+        foreach (GameObject card in CardsPrefabs)
+        {
+            if (CardName.Contains(card.name))
+                toCreate = card;
+        }
+        return toCreate;
     }
 
     private void replaceCard(PointerEventData eventData)
@@ -126,26 +161,13 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
         x = oldCard.GetComponent<RectTransform>().position.x;
         y = oldCard.GetComponent<RectTransform>().position.y;
 
-        GameObject toCreate = null;
-        foreach (GameObject card in CardsPrefabs)
-        {
-            if (lastCardClicked.name.Contains(card.name))
-                toCreate = card;
-        }
+        GameObject toCreate = cardToCreate(lastCardClicked.name);
 
         if (!selectedCards.Any(c => c.name.Contains(toCreate.name)))
         {
             int index = selectedCards.FindIndex(a => a.name == oldCard.name);
             Destroy(oldCard);
-            GameObject createdCard = Instantiate(toCreate, new Vector2(x, y), Quaternion.identity);
-            createdCard.transform.SetParent(Deck.transform);
-            createdCard.name = toCreate.name;
-            createdCard.GetComponent<Image>().color = lastCardClicked.GetComponent<Image>().color;
-
-            createdCard.GetComponent<CardsHandler>().CardMenu = GameObject.FindGameObjectWithTag("CardMenu");
-            createdCard.GetComponent<CardsHandler>().Deck = GameObject.FindGameObjectWithTag("Deck");
-            createdCard.tag = "Card";
-
+            GameObject createdCard = createCardInDeck(toCreate, x, y);
             selectedCards[index] = createdCard;
         }
     }

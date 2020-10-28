@@ -104,12 +104,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Poison
-  BaseAttack: 30
+  Description: Aims for uninfected targets. Infected monsters take poisonous damage
+    every second.
+  BaseAttack: 20
   BaseAttackSpeed: 1.3
-  BaseAbility: 75
+  BaseAbility: 50
   Ability: 3
   Target: 1
   Type: 4
   UpgradeATK: 2
   UpgradeATKS: 0
   UpgradeAbility: 5
+  PowerUpATK: 10
+  PowerUpATKS: 0
+  PowerUpAbility: 25

@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3421104210975460806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8661600455437561882}
+  - component: {fileID: 7066821435205874206}
+  - component: {fileID: 80879324265779208}
+  - component: {fileID: 5859042253006665943}
+  - component: {fileID: 984349432277914746}
+  m_Layer: 5
+  m_Name: Joker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8661600455437561882
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421104210975460806}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 70, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7066821435205874206
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421104210975460806}
+  m_CullTransparentMesh: 0
+--- !u!114 &80879324265779208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421104210975460806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0.6800728, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5edbddfaaa355ef4e9c002f1a9ff9a48, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5859042253006665943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421104210975460806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303b9179b8bfccf47ab0ada25740367c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsPrefabs:
+  - {fileID: 5504380036486358524, guid: a71f1aa7a9ac7eb43ac10ed9f1ea2315, type: 3}
+  - {fileID: 3639919167251686888, guid: eefcb9f0b1683b947a2c0eae4b3976ff, type: 3}
+  - {fileID: 8595153041171796802, guid: f9b2dab1020cc5b4bbc76f607548e9ed, type: 3}
+  - {fileID: 8450444320842655581, guid: 5c257bd2fc2174d4db0fe83f032dc05b, type: 3}
+  - {fileID: 5204716868091594080, guid: f4b0e1bde20f9cc4ab5707ad7219429b, type: 3}
+  - {fileID: 8514293555172447847, guid: 5a065918335e6e84c960dde25c4626cb, type: 3}
+  - {fileID: 1345317149644993021, guid: be342e5ae80863f40990142d20152a20, type: 3}
+  - {fileID: 8043229424496095376, guid: a38d29bb8888bee4ab187248f28122ac, type: 3}
+  - {fileID: 3790081469801053768, guid: dc2c773addcb85649aafc6549b75799c, type: 3}
+  CardMenu: {fileID: 0}
+  Deck: {fileID: 0}
+--- !u!114 &984349432277914746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421104210975460806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b858a20c5ba684599d08bfecf9caf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Joker
+  Description: When merged with another card with the same dot count, transforms
+    into the card it's merging with.
+  BaseAttack: 20
+  BaseAttackSpeed: 1
+  BaseAbility: 0
+  Ability: 9
+  Target: 1
+  Type: 1
+  UpgradeATK: 5
+  UpgradeATKS: 0
+  UpgradeAbility: 0
+  PowerUpATK: 10
+  PowerUpATKS: 0
+  PowerUpAbility: 0

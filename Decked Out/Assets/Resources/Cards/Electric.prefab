@@ -104,12 +104,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Electric
-  BaseAttack: 45
-  BaseAttackSpeed: 0.6
-  BaseAbility: 45
+  Description: When the bullet hits the target, deals 100%, 70% and 30% damage to
+    three monsters, starting from the target.
+  BaseAttack: 30
+  BaseAttackSpeed: 0.7
+  BaseAbility: 30
   Ability: 4
   Target: 1
   Type: 1
   UpgradeATK: 3
   UpgradeATKS: 0.02
   UpgradeAbility: 3
+  PowerUpATK: 10
+  PowerUpATKS: 0
+  PowerUpAbility: 20

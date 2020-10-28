@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Iron
+  Description: Aims for the monster with the highest HP. Deals double damage to the
+    bosses.
   BaseAttack: 100
   BaseAttackSpeed: 1
   BaseAbility: 0
@@ -98,6 +100,9 @@ MonoBehaviour:
   UpgradeATK: 10
   UpgradeATKS: 0
   UpgradeAbility: 0
+  PowerUpATK: 100
+  PowerUpATKS: 0
+  PowerUpAbility: 0
 --- !u!114 &2826725001633376639
 MonoBehaviour:
   m_ObjectHideFlags: 0

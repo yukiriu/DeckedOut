@@ -104,12 +104,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Wind
-  BaseAttack: 40
+  Description: Has the fastest basic attack speed among all cards.
+  BaseAttack: 20
   BaseAttackSpeed: 0.45
-  BaseAbility: 20
+  BaseAbility: 10
   Ability: 2
   Target: 1
   Type: 2
   UpgradeATK: 3
   UpgradeATKS: 0
   UpgradeAbility: 2
+  PowerUpATK: 15
+  PowerUpATKS: 0
+  PowerUpAbility: 10

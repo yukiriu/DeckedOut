@@ -5,11 +5,13 @@ using UnityEngine.EventSystems;
 
 public enum Type { Buff, Magic, Physical, Transform, Debuff, Install }
 public enum Target { Strongest, First, Last, Random, None };
-public enum Abilities { None, Fire, Wind, Poison, Electric, Water }
+public enum Abilities { None, Fire, Wind, Poison, Electric, Water, Angel, Time, Death, Joker, Sacrifice, Summoner, Supplement }
 
 public class Card : MonoBehaviour
 {
     public string Name;
+
+    public string Description;
 
     public int BaseAttack;
     private int actualAttack;
@@ -17,8 +19,8 @@ public class Card : MonoBehaviour
     public float BaseAttackSpeed; // In seconds
     private float actualAttackSpeed; // In seconds
 
-    public int BaseAbility;
-    private int actualAbility;
+    public float BaseAbility;
+    private float actualAbility;
     
     public Abilities Ability;
     private Ability ability;
@@ -29,7 +31,12 @@ public class Card : MonoBehaviour
     // Bonuses per card upgrade
     public int UpgradeATK;
     public float UpgradeATKS;
-    public int UpgradeAbility;
+    public float UpgradeAbility;
+
+    // Bonuses per card powerup ingame
+    public int PowerUpATK;
+    public float PowerUpATKS;
+    public float PowerUpAbility;
 
     public void Start()
     {
@@ -57,4 +64,6 @@ public class Card : MonoBehaviour
         => Ability.ToString();
     public string CardAbilityDmg()
         => actualAbility.ToString();
+    public string CardDescription()
+        => Description.ToString();
 }
