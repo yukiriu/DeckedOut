@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8600854750129524978}
   - component: {fileID: 2243905369223029146}
   - component: {fileID: 6653488640602004227}
-  - component: {fileID: 2264495058139152726}
   - component: {fileID: 2369903017612161073}
   m_Layer: 5
   m_Name: Time
@@ -76,21 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2264495058139152726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345317149644993021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 303b9179b8bfccf47ab0ada25740367c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardsPrefabs: []
-  CardMenu: {fileID: 0}
-  Deck: {fileID: 0}
 --- !u!114 &2369903017612161073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +92,7 @@ MonoBehaviour:
   BaseAttack: 10
   BaseAttackSpeed: 0.8
   BaseAbility: 0.1
-  Ability: 7
+  Ability: 8
   Target: 1
   Type: 2
   UpgradeATK: 5

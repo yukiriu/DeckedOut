@@ -106,6 +106,9 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
         createdCard.transform.SetParent(Deck.transform);
         createdCard.name = toCreate.name;
 
+        if (createdCard.GetComponent<Image>().sprite.name != "blank")
+            createdCard.GetComponent<Image>().color = Color.HSVToRGB(0, 0, 100);
+        createdCard.AddComponent<CardsHandler>();
         createdCard.GetComponent<CardsHandler>().CardMenu = GameObject.Find("Canvas").transform.Find("CardMenu").gameObject;
         createdCard.GetComponent<CardsHandler>().Deck = GameObject.FindGameObjectWithTag("Deck");
         createdCard.tag = "Card";
@@ -125,7 +128,16 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
         GameObject.Find("TARGET").GetComponent<TextMeshProUGUI>().text = card.CardTarget();
         GameObject.Find("ABILITY").GetComponent<TextMeshProUGUI>().text = card.CardAbility();
         GameObject.Find("ABILITYDMG").GetComponent<TextMeshProUGUI>().text = card.CardAbilityDmg();
-        cardImage.color = card.GetComponent<Image>().color;
+        if (card.GetComponent<Image>().sprite.name == "blank")
+        {
+            cardImage.color = card.GetComponent<Image>().color;
+            cardImage.sprite = card.GetComponent<Image>().sprite;
+        }
+        else
+        {
+            cardImage.sprite = card.GetComponent<Image>().sprite;
+            cardImage.color = Color.HSVToRGB(0, 0, 100);
+        }
     }
 
     private bool isCardAlreadyInDeck(string CardName)
@@ -154,12 +166,9 @@ public class CardsHandler : MonoBehaviour, IPointerDownHandler
 
     private void replaceCard(PointerEventData eventData)
     {
-        float x = 0;
-        float y = 0;
-
         GameObject oldCard = GameObject.Find(eventData.pointerCurrentRaycast.gameObject.name);
-        x = oldCard.GetComponent<RectTransform>().position.x;
-        y = oldCard.GetComponent<RectTransform>().position.y;
+        float x = oldCard.GetComponent<RectTransform>().position.x;
+        float y = oldCard.GetComponent<RectTransform>().position.y;
 
         GameObject toCreate = cardToCreate(lastCardClicked.name);
 

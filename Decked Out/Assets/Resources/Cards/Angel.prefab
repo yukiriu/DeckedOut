@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2996201588590265587}
   - component: {fileID: 4749906314420860315}
   - component: {fileID: 188317761741262594}
-  - component: {fileID: 4730434283029845335}
   - component: {fileID: 9091479672561591344}
   m_Layer: 5
   m_Name: Angel
@@ -76,21 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4730434283029845335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5504380036486358524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 303b9179b8bfccf47ab0ada25740367c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardsPrefabs: []
-  CardMenu: {fileID: 0}
-  Deck: {fileID: 0}
 --- !u!114 &9091479672561591344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +93,7 @@ MonoBehaviour:
   BaseAttack: 10
   BaseAttackSpeed: 0.8
   BaseAbility: 0.1
-  Ability: 6
+  Ability: 7
   Target: 1
   Type: 2
   UpgradeATK: 5

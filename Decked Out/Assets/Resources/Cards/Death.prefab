@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6301747747264070887}
   - component: {fileID: 4542977434732590479}
   - component: {fileID: 8970573740430937878}
-  - component: {fileID: 4559062990912722243}
   - component: {fileID: 57288815024186404}
   m_Layer: 5
   m_Name: Death
@@ -76,21 +75,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4559062990912722243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3639919167251686888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 303b9179b8bfccf47ab0ada25740367c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardsPrefabs: []
-  CardMenu: {fileID: 0}
-  Deck: {fileID: 0}
 --- !u!114 &57288815024186404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,7 +93,7 @@ MonoBehaviour:
   BaseAttack: 20
   BaseAttackSpeed: 1.2
   BaseAbility: 2
-  Ability: 8
+  Ability: 9
   Target: 1
   Type: 1
   UpgradeATK: 4

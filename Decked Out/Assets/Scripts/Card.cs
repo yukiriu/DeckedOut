@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public enum Type { Buff, Magic, Physical, Transform, Debuff, Install }
 public enum Target { Strongest, First, Last, Random, None };
-public enum Abilities { None, Fire, Wind, Poison, Electric, Water, Angel, Time, Death, Joker, Sacrifice, Summoner, Supplement }
+public enum Abilities { None, Fire, Mechanical, Wind, Poison, Electric, Water, Angel, Time, Death, Joker, Sacrifice, Summoner, Boost }
 
 public class Card : MonoBehaviour
 {

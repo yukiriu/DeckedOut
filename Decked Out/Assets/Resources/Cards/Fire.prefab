@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3932764493161316668}
   - component: {fileID: 4487293328572911081}
   - component: {fileID: 730563616429811291}
-  - component: {fileID: 1893296718574570306}
   m_Layer: 5
   m_Name: Fire
   m_TagString: Untagged
@@ -103,18 +102,3 @@ MonoBehaviour:
   PowerUpATK: 10
   PowerUpATKS: 0
   PowerUpAbility: 20
---- !u!114 &1893296718574570306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8450444320842655581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 303b9179b8bfccf47ab0ada25740367c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CardsPrefabs: []
-  CardMenu: {fileID: 0}
-  Deck: {fileID: 0}
